@@ -1,22 +1,41 @@
----
-title: DocuMind
-emoji: 🚀
-colorFrom: red
-colorTo: red
-sdk: docker
-app_port: 8501
-tags:
-- streamlit
-pinned: false
-short_description: The DocuMind system, as outlined and implemented in this rep
-license: mit
+# 🚀 DocuMind — when your documents finally speak for themselves
+
+
+> **Narrative Hook:** *Your documents finally learn to speak for themselves.*
+> **Real-World Challenge:** 51% of workers say GenAI often lacks useful, grounded information.
+> **Mission:** Turn static PDFs into a trusted, conversational knowledge system with citations, confidence… and speed.
+
+
 ---
 
-# DocuMind: Advanced Document Intelligence Platform
 
-## Overview
-DocuMind is an AI-powered document intelligence platform that transforms static PDF documents into interactive knowledge sources. It leverages Google's Gemini AI, ChromaDB, and Streamlit to provide semantic search, conversational question answering, and source attribution with confidence scores.
+<p align="center">
+<img src="img/img1.png" alt="DocuMind Upload Screen" width="46%"/>
+&nbsp;&nbsp;
+<img src="img/img2.png" alt="DocuMind QA Screen" width="46%"/>
+</p>
 
+
+<p align="center">
+<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/license-MIT-black"></a>
+<img src="https://img.shields.io/badge/RAG-ready-red">
+<img src="https://img.shields.io/badge/Latency-<3s%20target-orange">
+<img src="https://img.shields.io/badge/Accuracy-80%%20target-green">
+<img src="https://img.shields.io/badge/Stack-LangChain%20%7C%20OpenAI/Gemini%20Embeddings%20%7C%20Chroma/Pinecone%20%7C%20Streamlit-blue">
+</p>
+
+
+---
+
+
+## 🧠 What is DocuMind?
+
+
+DocuMind is a **RAG (Retrieval-Augmented Generation)** assistant for PDFs and company docs.
+It ingests documents, chunks them intelligently, indexes embeddings in a vector DB, and answers questions with **source-grounded** responses and **confidence scores**. Built for **speed, transparency, and trust**.
+
+
+---
 ## Features
 - Intelligent PDF ingestion and chunking
 - Semantic search with Google Generative AI embeddings
@@ -25,6 +44,46 @@ DocuMind is an AI-powered document intelligence platform that transforms static 
 - Confidence scoring system (Very High to Very Low)
 - Modern, responsive Streamlit web interface
 - Dockerized for easy deployment (Hugging Face Spaces supported)
+
+---
+## 🧪 Trust by Design
+
+
+**Citations**
+- Every answer lists **file names + page numbers** and **200-char snippet previews**.
+- Clicking a citation focuses the exact passage (UI highlight).
+
+
+**Confidence Tiers**
+```
+Very High (90–100) — Top-ranked, dense context, multi-chunk agreement
+High (75–89) — Strong match, clear evidence
+Medium (60–74) — Partial match, supportive context
+Low (40–59) — Weak retrieval, caution advised
+Very Low (<40) — Likely guess; we say “I don’t know” instead
+```
+
+
+**Anti-Hallucination Controls**
+- Retrieval-strict prompts (“cite before claim”)
+- Empty-answer allowed (better honest than wrong)
+- Optional answer-length limiter + grounding checker
+
+
+---
+
+
+## 🖥️ Using DocuMind
+
+
+1. **Upload PDFs** (one or many).
+2. DocuMind **parses → chunks → embeds → indexes**.
+3. Ask a question in plain English.
+4. Get an answer with **citations + confidence**.
+5. Expand a citation for **inline preview** and jump to context.
+
+
+---
 
 ## Installation Guide
 
@@ -69,20 +128,18 @@ Add screenshots here to showcase:
 - Example answer with source attribution and confidence scores
 
 ```
-![DocuMind Upload Screen](img\img1.png)
-![DocuMind QA Screen](img\img2.png)
+![DocuMind Upload Screen](img/img1.png)
+![DocuMind QA Screen](img/img2.png)
 ```
 
 ## Future Upgrades
 - <Real-World Challenge: RAG systems struggle with context windows and multi-step reasoning>
-- <Narrative Hook: " An AI that remembers conversations and connects the dots ">
+- Narrative Hook: " An AI that remembers conversations and connects the dots "
 - Build an advanced RAG system that maintains conversation memory, handles multi-turn queries, and retrieves from multiple data sources (documents, databases, APIs).
 - Include advanced chunking, re-ranking, and query expansion techniques.
 - Tech Stack: LangChain/LlamaIndex, vector databases, Redis, FastAPI, advanced embedding models
 - Success Metrics: Handle 10+ turn conversations, improve accuracy to 90%
 
-## References
-See [WHITEPAPER.md](WHITEPAPER.md) for a full technical and business overview.
 
 ---
 Built with ❤️ using Streamlit, Gemini AI, and ChromaDB
