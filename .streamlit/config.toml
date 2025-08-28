@@ -1,2 +1,9 @@
-# Streamlit configuration
-# Data directory will be set automatically
+[global]
+dataDir = "/app/.streamlit"
+
+[server]
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false
