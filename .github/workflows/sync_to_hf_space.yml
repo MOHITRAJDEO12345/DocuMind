@@ -7,17 +7,26 @@ jobs:
   sync-to-hub:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
       with:
         fetch-depth: 0
         lfs: true
-    - name: Sync code and push to Hugging Face Space
-      env:
-        HF_TOKEN: ${{ secrets.HF_TOKEN }}
+
+    - name: Configure git user
       run: |
         git config --global user.name "github-actions"
         git config --global user.email "actions@github.com"
-        git remote set-url origin https://KingArthur111:$HF_TOKEN@huggingface.co/spaces/KingArthur111/DocuMind
+
+    - name: Set remote URL for Hugging Face
+      run: |
+        git remote set-url origin https://KingArthur111:${{ secrets.HF_TOKEN }}@huggingface.co/spaces/KingArthur111/DocuMind
+
+    - name: Pull latest from Hugging Face repo to avoid conflicts
+      run: |
         git fetch origin main
         git pull --rebase origin main || git merge origin/main
+
+    - name: Push changes to Hugging Face
+      run: |
         git push origin main
