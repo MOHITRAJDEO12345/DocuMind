@@ -54,14 +54,7 @@ It ingests documents, chunks them intelligently, indexes embeddings in a vector 
 - Clicking a citation focuses the exact passage (UI highlight).
 
 
-**Confidence Tiers**
-```
-Very High (90–100) — Top-ranked, dense context, multi-chunk agreement
-High (75–89) — Strong match, clear evidence
-Medium (60–74) — Partial match, supportive context
-Low (40–59) — Weak retrieval, caution advised
-Very Low (<40) — Likely guess; we say “I don’t know” instead
-```
+---
 
 
 **Anti-Hallucination Controls**
